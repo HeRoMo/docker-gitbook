@@ -38,7 +38,6 @@ RUN set -eux; \
 
 RUN yarn global add gitbook-cli gitbook-plugin-uml
 
-COPY
 COPY ./start.sh /usr/bin/
 RUN chmod 755 /usr/bin/start.sh
 

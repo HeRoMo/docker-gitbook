@@ -11,8 +11,7 @@ services:
       - plantuml
 
   gitbook:
-    build: '.'
-    image: gitbook
+    image: hero/docker-gitbook:latest
     volumes:
       - ./gitbook:/gitbook
     ports:

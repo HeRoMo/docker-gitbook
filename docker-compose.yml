@@ -14,6 +14,7 @@ services:
     image: hero/docker-gitbook:latest
     volumes:
       - ./gitbook:/gitbook
+      - ./dest:/gitbook_dest
     ports:
       - 4000:4000
     depends_on:

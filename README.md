@@ -8,8 +8,8 @@ A Docker image for gitbook
 
 Run the following command, to init your gitbook
 
-```
-$ docker run --rm -v $(pwd)/gitbook:/gitbook -p 4000:4000 hero/gitbook init
+```bash
+$ docker run --rm -v $(pwd)/gitbook:/gitbook hero/gitbook init
 ```
 
 ### Serve
@@ -21,6 +21,12 @@ $ docker run -it -v $(pwd)/gitbook:/gitbook -p 4000:4000 --name my-gitbook hero/
 ```
 
 ## Docker compose
+
+More easly usage is to use docker compose.
+
+```bash
+$ docker-compose up
+```
 
 ## License
 

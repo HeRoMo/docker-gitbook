@@ -9,8 +9,15 @@ RUN apk add --update curl && \
     apk add glibc-bin.apk glibc.apk && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
-    apk del curl && \
-    rm -rf glibc.apk glibc-bin.apk /var/cache/apk/*
+    rm -rf glibc.apk glibc-bin.apk
+
+RUN apk update \
+    && apk add --no-cache curl fontconfig graphviz openssl \
+    && curl -O https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
+    && mkdir -p /usr/share/fonts/NotoSansCJKjp \
+    && unzip NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp/ \
+    && rm NotoSansCJKjp-hinted.zip \
+    && fc-cache -fv
 
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
 ENV PATH $PATH:/opt/calibre/bin
@@ -28,7 +35,7 @@ RUN apk update && \
     libxcomposite \
     xz && \
     wget -O- ${CALIBRE_INSTALLER_SOURCE_CODE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
-    rm -rf /tmp/calibre-installer-cache
+    rm -rf /tmp/calibre-installer-cache /var/cache/apk/*
 
 RUN yarn global add gitbook-cli svgexport
 

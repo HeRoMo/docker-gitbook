@@ -17,10 +17,13 @@ case "$1" in
     gitbook build $GITBOOK_DIR $BUILD_DIR
     ;;
   pdf)
-    gitbook pdf $GITBOOK_DIR $BUILD_DIR
+    gitbook pdf $GITBOOK_DIR $GITBOOK_DIR/book.pdf
     ;;
-  ebook)
-    gitbook ebook $GITBOOK_DIR $BUILD_DIR
+  epub)
+    gitbook epub $GITBOOK_DIR $GITBOOK_DIR/book.epub
+    ;;
+  mobi)
+    gitbook mobi $GITBOOK_DIR $GITBOOK_DIR/book.mobi
     ;;
   *)
     echo "Usage $0 {init|serve}"

@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/bash
 
 GITBOOK_DIR=/gitbook
 BUILD_DIR=/gitbook_dest

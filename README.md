@@ -55,8 +55,10 @@ add the following configuration to your *book.json*
 Run the following command, output PDF file as *book.pdf*
 
 ```bash
-$ docker-compose -f docker-compose.yml -f docker-compose-pdf.yml up --abort-on-container-exit
+$ docker-compose run --rm gitbook pdf
 ```
+
+You can make epub and mobi file like pdf.
 
 ## License
 

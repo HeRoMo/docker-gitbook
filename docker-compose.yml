@@ -7,8 +7,13 @@ services:
     image: hero/gitbook:latest
     volumes:
       - ./gitbook:/gitbook
+      - plugins:/gitbook/node_modules
     ports:
       - 4000:4000
+      - 35729:35729
     depends_on:
       - plantuml
     command: 'serve'
+
+volumes:
+  plugins:

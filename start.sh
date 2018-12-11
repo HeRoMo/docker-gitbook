@@ -26,7 +26,7 @@ case "$1" in
     gitbook mobi $GITBOOK_DIR $GITBOOK_DIR/book.mobi
     ;;
   *)
-    echo "Usage $0 {init|serve}"
+    echo "Usage $0 {init|serve|build|pdf|epub|mobi}"
     exit 1
     ;;
 esac

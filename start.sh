@@ -2,13 +2,17 @@
 
 GITBOOK_DIR=/gitbook
 BUILD_DIR=/gitbook_dest
+BOOK_JSON=book.json
 
 cd $GITBOOK_DIR
 gitbook install
 
 case "$1" in
   init)
-    gitbook init
+    if [ ! -f ${GITBOOK_DIR}/${BOOK_JSON} ]; then
+      cp /opt/gitbook/${BOOK_JSON} ${GITBOOK_DIR}/${BOOK_JSON}
+    fi
+    gitbook init $GITBOOK_DIR
     ;;
   serve)
     gitbook serve $GITBOOK_DIR $BUILD_DIR

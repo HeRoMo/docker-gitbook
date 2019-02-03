@@ -15,4 +15,7 @@ RUN yarn global add gitbook-cli svgexport
 COPY ./start.sh /usr/bin/
 RUN chmod 755 /usr/bin/start.sh
 
+RUN mkdir -p /opt/gitbook
+COPY ./book.json /opt/gitbook
+
 ENTRYPOINT ["start.sh"]

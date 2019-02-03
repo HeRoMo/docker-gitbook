@@ -22,43 +22,19 @@ Run the following command, to start gitbook server.
 $ docker run -it -v $(pwd)/gitbook:/gitbook -p 4000:4000 --name my-gitbook hero/gitbook serve
 ```
 
-## Docker compose
-
-More easly usage is to use docker compose.<br>
-
-
-```bash
-$ docker-compose up
-```
-
-Access to http://localhost:4000, after docker containers are started.
-
-If you want to use uml in your gitbook,
-add the following configuration to your *book.json*
-
-```json
-{
-    "plugins": ["plantuml-cloud"],
-    "pluginsConfig": {
-      "plantuml-cloud": {
-        "protocol": "http",
-        "host": "plantuml",
-        "port": 1608
-      }
-    }
-}
-```
-
-
-## PDF output
+### PDF output
 
 Run the following command, output PDF file as *book.pdf*
 
 ```bash
-$ docker-compose run --rm gitbook pdf
+$ docker run --rm -v $(pwd)/gitbook:/gitbook hero/gitbook pdf
 ```
 
 You can make epub and mobi file like pdf.
+
+## How to use more easly way
+
+See [HeRoMo/gitbook\-template: A gitbook project template](https://github.com/HeRoMo/gitbook-template)
 
 ## License
 

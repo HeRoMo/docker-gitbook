@@ -1,4 +1,4 @@
-FROM node:11.9-slim
+FROM node:12.16.1-buster-slim
 LABEL maintainer="HeRoMo"
 
 # install apt packages

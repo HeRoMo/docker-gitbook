@@ -1,4 +1,4 @@
-FROM node:11.9-slim
+FROM node:11.15.0-stretch-slim
 LABEL maintainer="HeRoMo"
 
 # install apt packages
